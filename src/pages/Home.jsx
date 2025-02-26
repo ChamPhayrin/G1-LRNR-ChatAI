@@ -23,7 +23,10 @@ export default function Home() {
             Your guided path to programming enlightenment
           </h2>
 
-          <button className="bg-emerald-500 text-white px-8 py-3 rounded-md hover:bg-emerald-600 transition-colors cursor-pointer">
+          <button
+            className="bg-emerald-500 text-white px-8 py-3 rounded-md hover:bg-emerald-600 transition-colors cursor-pointer"
+            onClick={() => (window.location.href = "/quiz")}
+          >
             BEGIN JOURNEY
           </button>
         </div>

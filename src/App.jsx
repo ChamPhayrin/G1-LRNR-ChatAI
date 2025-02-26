@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
+
 function App() {
 	return (
 		<>
