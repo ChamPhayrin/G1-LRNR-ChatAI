@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import "@dotlottie/player-component/dist/dotlottie-player";
+
 
 export default function Question({ questions }) {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -9,17 +11,24 @@ export default function Question({ questions }) {
 
 	const handleSubmit = async () => {
 		try {
-			setEvaluation("Loading...");
-			const response = await fetch("http://localhost:5000/api/evaluate", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					question: questions[currentQuestionIndex].question,
-					answer: userAnswer,
-				}),
-			});
+			setEvaluation(<dotlottie-player
+        src="https://lottie.host/e3e5aeca-f9cb-4daf-ab3d-4d9b98980c23/qyAeM5XqX1.lottie"
+        background="transparent"
+        speed="1"
+        style={{ width: '300px', height: '300px' }}
+        loop
+        autoplay
+      ></dotlottie-player>);
+      const response = await fetch("https://g1-lrnr-chatai.onrender.com/api/evaluate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: questions[currentQuestionIndex].question,
+          answer: userAnswer,
+        }),
+      });
 
 			const data = await response.json();
 			setEvaluation(data.feedback);
